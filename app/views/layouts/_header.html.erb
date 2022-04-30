@@ -18,19 +18,24 @@
 
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <%= link_to "Login", "javascript:login()" , class: "nav-link active" %>
+          <div data-controller="login">
+            <a href="#" data-action="login#switch" 
+                data-login-target="slide" 
+                class="nav-link">
+                Loading...
+            </a>
+          </div>
+        </li>
+          
+        <li class="nav-item">
+          <div data-controller="login">
+            <a href="#" data-login-target="name" 
+                class="nav-link">
+            </a>
+          </div>
         </li>
 
-        <li class="nav-item">
-          <%= link_to "Logout", "javascript:logout()", class: "nav-link active" %>
-        </li>
-
-        <li class="nav-item">
-          <%= form_with(url: "/users", method: :get, local: true) do |f| %>
-            <%= f.text_field :account_id, placeholder: "wabinab.testnet" %>
-            <%= f.submit "Search", class: "btn btn-outline-success" %>
-          <% end %>
-        </li>
+        <%# Search bar is deprecated. %>
       </ul>
 
     </div>

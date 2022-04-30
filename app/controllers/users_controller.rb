@@ -6,7 +6,8 @@ class UsersController < ApplicationController
   end
 
   def show 
-    @user = User.find(params[:id])
+    @user = User.new 
+    @user.account_id = search_params[:account_id].gsub('-', '.')
   end
 
   def index
